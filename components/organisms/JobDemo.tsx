@@ -72,7 +72,7 @@ export function JobDemo() {
               <span />
               <span />
             </div>
-            <div className="left">MECHBUK · GULF COAST DIESEL · DISPATCH BOARD</div>
+            <div className="left">MECHBUK · SAMPLE SHOP · DISPATCH BOARD</div>
             <div className="right">{clock}</div>
           </div>
           <div className="demo-tabs">

@@ -4,6 +4,8 @@ import { Features } from "@/components/organisms/Features";
 import { JobDemo } from "@/components/organisms/JobDemo";
 import { ShopFloor } from "@/components/organisms/ShopFloor";
 import { Pricing } from "@/components/organisms/Pricing";
+import { Changelog } from "@/components/organisms/Changelog";
+import { Footer } from "@/components/organisms/Footer";
 
 export default function LandingPage() {
   return (
@@ -14,6 +16,8 @@ export default function LandingPage() {
       <JobDemo />
       <ShopFloor />
       <Pricing />
+      <Changelog />
+      <Footer />
     </>
   );
 }
