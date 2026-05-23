@@ -1,12 +1,14 @@
 import "./globals.css";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
+import "@fontsource-variable/archivo/index.css";
+import "@fontsource/archivo-black/400.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mechbuk — Workshop repair, end to end",
+  title: "Mechbuk — Workshop Operating System for Truck & Auto Repair",
   description:
-    "Run vehicle and loose-component repairs from check-in to handover. One job card, four surfaces — service desk, technician PWA, customer portal, fleet portal.",
+    "Mechbuk is the workshop operating system for commercial truck and auto repair. Track job cards, parts, and labour hours across every bay — from work order open to invoice closed.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
