@@ -1,6 +1,10 @@
 // Technical line icons for the Features module. All stroke currentColor.
+// q() quantizes computed coordinates so SSR/client emit identical strings
+// (avoids hydration mismatch from last-ULP Math.cos/sin float differences).
 
 type IconProps = { size?: number };
+
+const q = (n: number) => Math.round(n * 10000) / 10000;
 
 export function IconWrench({ size = 48 }: IconProps) {
   return (
@@ -48,11 +52,16 @@ export function IconClock({ size = 48 }: IconProps) {
       <line x1="32" y1="32" x2="42" y2="36" />
       {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((a, i) => {
         const r1 = 20, r2 = 22;
-        const x1 = 32 + Math.cos(((a - 90) * Math.PI) / 180) * r1;
-        const y1 = 32 + Math.sin(((a - 90) * Math.PI) / 180) * r1;
-        const x2 = 32 + Math.cos(((a - 90) * Math.PI) / 180) * r2;
-        const y2 = 32 + Math.sin(((a - 90) * Math.PI) / 180) * r2;
-        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
+        const rad = ((a - 90) * Math.PI) / 180;
+        return (
+          <line
+            key={i}
+            x1={q(32 + Math.cos(rad) * r1)}
+            y1={q(32 + Math.sin(rad) * r1)}
+            x2={q(32 + Math.cos(rad) * r2)}
+            y2={q(32 + Math.sin(rad) * r2)}
+          />
+        );
       })}
     </svg>
   );

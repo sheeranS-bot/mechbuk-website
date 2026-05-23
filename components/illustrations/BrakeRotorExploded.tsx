@@ -2,7 +2,14 @@
  * Exploded brake-assembly technical drawing. `explode` (0..1.5+) controls how
  * far the components separate; `rotate` spins the rotor (degrees). Uses
  * currentColor so it tints with the surrounding section.
+ *
+ * Coordinates derived from Math.cos/sin are quantized via q() so the SSR
+ * (Node) and client (browser) renders emit byte-identical attribute strings —
+ * otherwise last-ULP float differences trip React hydration warnings.
  */
+const q = (n: number) => Math.round(n * 10000) / 10000;
+const rad = (deg: number) => ((deg - 90) * Math.PI) / 180;
+
 export function BrakeRotorExploded({
   explode = 1,
   rotate = 0,
@@ -79,29 +86,36 @@ export function BrakeRotorExploded({
         <circle cx="0" cy="0" r="40" />
         <circle cx="0" cy="0" r="14" />
         <circle cx="0" cy="0" r="6" />
-        {[0, 72, 144, 216, 288].map((a, i) => {
-          const rad = 27;
-          const ax = Math.cos(((a - 90) * Math.PI) / 180) * rad;
-          const ay = Math.sin(((a - 90) * Math.PI) / 180) * rad;
-          return <circle key={i} cx={ax} cy={ay} r="4" />;
-        })}
+        {[0, 72, 144, 216, 288].map((a, i) => (
+          <circle key={i} cx={q(Math.cos(rad(a)) * 27)} cy={q(Math.sin(rad(a)) * 27)} r="4" />
+        ))}
         {Array.from({ length: 24 }).map((_, i) => {
           const a = (i * 360) / 24;
-          const r1 = 76, r2 = 114;
-          const x1 = Math.cos(((a - 90) * Math.PI) / 180) * r1;
-          const y1 = Math.sin(((a - 90) * Math.PI) / 180) * r1;
-          const x2 = Math.cos(((a - 90) * Math.PI) / 180) * r2;
-          const y2 = Math.sin(((a - 90) * Math.PI) / 180) * r2;
-          return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="0.7" opacity="0.7" />;
+          return (
+            <line
+              key={i}
+              x1={q(Math.cos(rad(a)) * 76)}
+              y1={q(Math.sin(rad(a)) * 76)}
+              x2={q(Math.cos(rad(a)) * 114)}
+              y2={q(Math.sin(rad(a)) * 114)}
+              strokeWidth="0.7"
+              opacity="0.7"
+            />
+          );
         })}
         {Array.from({ length: 60 }).map((_, i) => {
           const a = (i * 360) / 60;
-          const r1 = 118, r2 = 120;
-          const x1 = Math.cos(((a - 90) * Math.PI) / 180) * r1;
-          const y1 = Math.sin(((a - 90) * Math.PI) / 180) * r1;
-          const x2 = Math.cos(((a - 90) * Math.PI) / 180) * r2;
-          const y2 = Math.sin(((a - 90) * Math.PI) / 180) * r2;
-          return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="0.4" opacity="0.4" />;
+          return (
+            <line
+              key={i}
+              x1={q(Math.cos(rad(a)) * 118)}
+              y1={q(Math.sin(rad(a)) * 118)}
+              x2={q(Math.cos(rad(a)) * 120)}
+              y2={q(Math.sin(rad(a)) * 120)}
+              strokeWidth="0.4"
+              opacity="0.4"
+            />
+          );
         })}
       </g>
 
@@ -112,13 +126,12 @@ export function BrakeRotorExploded({
         <circle cx="0" cy="0" r="10" />
         <circle cx="0" cy="0" r="5" />
         {[0, 72, 144, 216, 288].map((a, i) => {
-          const rad = 24;
-          const ax = Math.cos(((a - 90) * Math.PI) / 180) * rad;
-          const ay = Math.sin(((a - 90) * Math.PI) / 180) * rad;
+          const ax = q(Math.cos(rad(a)) * 24);
+          const ay = q(Math.sin(rad(a)) * 24);
           return (
             <g key={i}>
               <circle cx={ax} cy={ay} r="3.5" />
-              <line x1={ax} y1={ay} x2={ax + 14 * Math.max(0, e * 0.6)} y2={ay} strokeWidth="0.7" />
+              <line x1={ax} y1={ay} x2={q(ax + 14 * Math.max(0, e * 0.6))} y2={ay} strokeWidth="0.7" />
             </g>
           );
         })}
@@ -130,34 +143,35 @@ export function BrakeRotorExploded({
           const pts: string[] = [];
           for (let i = 0; i < 6; i++) {
             const a = ((i * 60 - 30) * Math.PI) / 180;
-            pts.push(`${Math.cos(a) * 22},${Math.sin(a) * 22}`);
+            pts.push(`${q(Math.cos(a) * 22)},${q(Math.sin(a) * 22)}`);
           }
           return <polygon points={pts.join(" ")} />;
         })()}
         <circle cx="0" cy="0" r="14" />
         <circle cx="0" cy="0" r="6" />
-        {[0, 60, 120, 180, 240, 300].map((a, i) => {
-          const ax1 = Math.cos(((a - 90) * Math.PI) / 180) * 22;
-          const ay1 = Math.sin(((a - 90) * Math.PI) / 180) * 22;
-          const ax2 = Math.cos(((a - 90) * Math.PI) / 180) * 16;
-          const ay2 = Math.sin(((a - 90) * Math.PI) / 180) * 16;
-          return <line key={i} x1={ax1} y1={ay1} x2={ax2} y2={ay2} />;
-        })}
+        {[0, 60, 120, 180, 240, 300].map((a, i) => (
+          <line
+            key={i}
+            x1={q(Math.cos(rad(a)) * 22)}
+            y1={q(Math.sin(rad(a)) * 22)}
+            x2={q(Math.cos(rad(a)) * 16)}
+            y2={q(Math.sin(rad(a)) * 16)}
+          />
+        ))}
       </g>
 
       {/* LUG BOLTS */}
       <g transform={`translate(${off.bolts}, 0)`}>
         {[0, 72, 144, 216, 288].map((a, i) => {
-          const r = 30;
-          const ax = Math.cos(((a - 90) * Math.PI) / 180) * r;
-          const ay = Math.sin(((a - 90) * Math.PI) / 180) * r;
+          const ax = q(Math.cos(rad(a)) * 30);
+          const ay = q(Math.sin(rad(a)) * 30);
           return (
             <g key={i} transform={`translate(${ax}, ${ay})`}>
               {(() => {
                 const pts: string[] = [];
                 for (let j = 0; j < 6; j++) {
                   const an = ((j * 60 - 30) * Math.PI) / 180;
-                  pts.push(`${Math.cos(an) * 5},${Math.sin(an) * 5}`);
+                  pts.push(`${q(Math.cos(an) * 5)},${q(Math.sin(an) * 5)}`);
                 }
                 return <polygon points={pts.join(" ")} />;
               })()}
