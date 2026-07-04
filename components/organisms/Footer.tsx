@@ -42,7 +42,7 @@ export function Footer() {
         <div className="footer-cols">
           <div>
             <div className="nav-logo" style={{ color: "var(--bone)" }}>
-              <MarkIcon size={28} book="var(--accent)" wrench="var(--ink)" />
+              <MarkIcon size={28} color="var(--accent)" />
               MECHBUK
             </div>
             <p className="blurb">

@@ -7,7 +7,7 @@ export function Nav() {
     <header className="nav">
       <div className="wrap nav-inner">
         <a href="#" className="nav-logo">
-          <MarkIcon size={26} book="var(--ink)" wrench="var(--accent)" />
+          <MarkIcon size={26} color="var(--ink)" />
           MECHBUK
         </a>
         <nav className="nav-links">
