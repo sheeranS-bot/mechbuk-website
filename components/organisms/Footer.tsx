@@ -1,7 +1,7 @@
 import { MarkIcon } from "@/components/atoms/MarkIcon";
-import { FooterColumn } from "@/components/molecules/FooterColumn";
+import { FooterColumn, type FooterLink } from "@/components/molecules/FooterColumn";
 
-const COLUMNS: { heading: string; links: string[] }[] = [
+const COLUMNS: { heading: string; links: FooterLink[] }[] = [
   {
     heading: "Product",
     links: [
@@ -27,7 +27,7 @@ const COLUMNS: { heading: string; links: string[] }[] = [
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Changelog", "API", "DOT 396.11 guide", "Flat-rate primer", "Migration guide"],
+    links: ["Documentation", { label: "Changelog", href: "/changelog" }, "API", "DOT 396.11 guide", "Flat-rate primer", "Migration guide"],
   },
   {
     heading: "Company",

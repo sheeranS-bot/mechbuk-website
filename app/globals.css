@@ -1013,3 +1013,51 @@ svg .fill-bone { fill: var(--bone); }
 .callout-band .cb .v { font-family: var(--hero); font-size: 17px; letter-spacing:-0.005em; line-height: 1.15; text-transform: uppercase; }
 .callout-band .cb .v.mono-v { font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; font-weight: 600; line-height: 1.4; }
 @media (max-width: 720px) { .callout-band { grid-template-columns: 1fr; } .callout-band .cb { border-right: 0; border-bottom: 1px solid var(--rule); } }
+
+/* ---- Changelog ------------------------------------------------------ */
+.changelog-list { border-top: 2px solid var(--ink); }
+.cl-entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 28px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.cl-entry:last-child { border-bottom: 0; }
+.cl-gutter { display: flex; flex-direction: column; gap: 10px; }
+.cl-date {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-mute); font-variant-numeric: tabular-nums;
+}
+.cl-cats { display: flex; flex-wrap: wrap; gap: 6px; }
+.cl-pill {
+  display: inline-block; font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 8px;
+  border: 1px solid var(--ink); line-height: 1;
+}
+.cl-pill.feature { background: var(--accent); color: var(--accent-ink); border-color: var(--ink); }
+.cl-pill.improvement { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+.cl-pill.fix { background: transparent; color: var(--ink); border-color: var(--ink); }
+.cl-title {
+  font-family: var(--hero); font-size: 21px; line-height: 1.12;
+  letter-spacing: -0.01em; color: var(--ink); margin: 0;
+}
+.cl-lead { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 11px 0 0; max-width: 62ch; }
+.cl-bullets { list-style: none; margin: 13px 0 0; padding: 0; }
+.cl-bullets li {
+  position: relative; padding: 4px 0 4px 20px; font-size: 14px;
+  line-height: 1.5; color: var(--ink-2); max-width: 62ch;
+}
+.cl-bullets li::before {
+  content: ""; position: absolute; left: 0; top: 11px;
+  width: 7px; height: 7px; background: var(--accent); border: 1px solid var(--ink);
+}
+.cl-more { margin-top: 26px; }
+/* Dedicated /changelog page shell */
+.cl-page { padding: 46px 0 72px; }
+.cl-page-head { margin-bottom: 8px; }
+.cl-page-title { font-family: var(--hero); font-size: clamp(38px, 5vw, 66px); line-height: 0.92; text-transform: uppercase; letter-spacing: -0.02em; margin: 14px 0 0; }
+.cl-page-sub { font-size: 15.5px; color: var(--ink-2); margin: 16px 0 0; max-width: 54ch; }
+@media (max-width: 640px) {
+  .cl-entry { grid-template-columns: 1fr; gap: 12px; }
+}

@@ -1,6 +1,9 @@
 import { SectionHead } from "@/components/molecules/SectionHead";
+import { ChangelogList } from "@/components/molecules/ChangelogList";
+import { changelogEntries } from "@/lib/changelog";
 
 export function Changelog() {
+  const latest = changelogEntries.slice(0, 3);
   return (
     <section className="section tight" id="changelog" data-screen-label="06 Changelog">
       <div className="wrap">
@@ -8,21 +11,13 @@ export function Changelog() {
           num="05"
           title="CHANGELOG"
           sub="WHAT SHIPPED. RECENTLY."
-          stamp={["COMING SOON", "—", "—"]}
+          stamp={["LIVE", `${changelogEntries.length} ENTRIES`, "PLAIN ENGLISH"]}
         />
-        <div
-          style={{
-            border: "2px solid var(--ink)",
-            padding: "32px 18px",
-            textAlign: "center",
-            fontFamily: "var(--mono)",
-            fontSize: 12,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--ink-mute)",
-          }}
-        >
-          Changelog coming soon
+        <ChangelogList entries={latest} />
+        <div className="cl-more">
+          <a className="btn ghost" href="/changelog">
+            View full changelog <span className="arr">→</span>
+          </a>
         </div>
       </div>
     </section>
