@@ -115,14 +115,14 @@ export function Pricing() {
               </div>
             </div>
             <div>
-              <a className={buttonClasses({ variant: "alt" })} href={appHref("/app")} style={{ width: "100%", justifyContent: "center" }}>
+              <a className={buttonClasses({ variant: "alt" })} href={appHref("/auth/signup")} style={{ width: "100%", justifyContent: "center" }}>
                 Start Trial
               </a>
             </div>
             <div style={featuredBg}>
               <a
                 className={buttonClasses()}
-                href={appHref("/app")}
+                href={appHref("/auth/signup")}
                 style={{ width: "100%", justifyContent: "center", background: "var(--accent)", color: "var(--accent-ink)", borderColor: "var(--ink)" }}
               >
                 Start Trial <span className="arr">→</span>
