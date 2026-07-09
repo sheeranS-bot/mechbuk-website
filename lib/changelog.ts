@@ -42,6 +42,30 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    slug: "2026-07-09-edit-component-details",
+    date: "2026-07-09",
+    title: "Fix a mistake on a checked-in component",
+    categories: ["feature"],
+    lead:
+      "Typed the wrong make, model, or serial number when a component came in? You can now open the component and correct its details — no more being stuck with a mistake.",
+    bullets: [
+      "Edit the make, model, serial number, part number, year, weight, and component type.",
+      "Works any time the component is still on your books.",
+    ],
+  },
+  {
+    slug: "2026-07-09-mechanics-vs-desk",
+    title: "Front-desk staff and mechanics, kept apart",
+    date: "2026-07-09",
+    categories: ["fix"],
+    lead:
+      "When you put a technician on a job, the list now shows your real mechanics from the Technicians list — not your office logins. The person on a job is always an actual technician.",
+    bullets: [
+      "The technician picker on a work order and the reports show your workshop mechanics only.",
+      "Office team members keep full access to run the app, but no longer show up as mechanics.",
+    ],
+  },
+  {
     slug: "2026-07-06-assign-technicians",
     date: "2026-07-06",
     title: "Assign a technician to every job",
