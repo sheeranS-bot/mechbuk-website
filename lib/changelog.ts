@@ -42,6 +42,41 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    slug: "2026-08-19-rework-no-charge",
+    date: "2026-08-19",
+    title: "When a job comes back, put it right at no charge",
+    categories: ["feature"],
+    lead:
+      "A customer collects their unit, then brings it back because something wasn't fixed properly. You can now open a rework on the finished job: it's linked to the original, it costs the customer nothing, and it doesn't get counted as new work.",
+    bullets: [
+      "Open it from the finished work order — the customer and the unit carry over, so there's nothing to re-enter.",
+      "Nothing is billed, but you still record the parts and hours, so you can see what comebacks are costing you.",
+      "Both work orders link to each other, so the full story is on the unit's history.",
+      "The customer sees \"no charge\" and nothing else. Owners and managers are the only ones who can open a rework.",
+    ],
+  },
+  {
+    slug: "2026-08-19-rework-reporting",
+    date: "2026-08-19",
+    title: "Reports no longer count a comeback as new work",
+    categories: ["improvement", "fix"],
+    lead:
+      "Redoing a job used to make your numbers look better than they were — it counted as another job closed, and the mechanic redoing their own work looked busier. That's fixed, and there's a new rework panel on the overview.",
+    bullets: [
+      "Jobs closed, turnaround time and technician hours all leave reworks out.",
+      "A new panel shows how often work comes back and what it's costing you.",
+      "Reworks still count towards how busy the workshop is right now, because the bay and the mechanic really are tied up.",
+    ],
+  },
+  {
+    slug: "2026-08-19-work-order-page-fix",
+    date: "2026-08-19",
+    title: "The work order page opens for everyone again",
+    categories: ["fix"],
+    lead:
+      "Team members without settings access were hitting an error when opening a work order. The page now opens for everyone, showing labour as zero if no rate has been set up.",
+  },
+  {
     slug: "2026-07-09-edit-component-details",
     date: "2026-07-09",
     title: "Fix a mistake on a checked-in component",
