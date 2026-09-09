@@ -42,6 +42,87 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    slug: "2026-09-09-yard-board",
+    date: "2026-09-09",
+    title: "See every unit in the yard from a tablet",
+    categories: ["feature"],
+    lead:
+      "Mechbuk now has a tablet view for the workshop manager: every vehicle and component on the premises, one card each, showing how far the work has come, who is on it, which parts are still waiting for a price, and anything sent out to a vendor. Switch between your workshops from the top bar.",
+    bullets: [
+      "Cards are grouped by where the job is — intake and strip, working, testing and checks, ready to collect — with the oldest unit first.",
+      "Filter by vehicles or components, by who is working right now, or search a plate, serial, customer or shelf location.",
+      "Late units are marked and units waiting on parts are tinted, so trouble stands out from across the yard.",
+    ],
+  },
+  {
+    slug: "2026-09-09-yard-job-sheet",
+    date: "2026-09-09",
+    title: "Record work as it happens, on the tablet",
+    categories: ["feature"],
+    lead:
+      "Open a unit from the yard and record the work without walking back to the desk. Start an operation and say who is on it, mark it done with a second tap to confirm, decline or reopen it, correct the hours, and add operations from your catalogue.",
+    bullets: [
+      "Mechanics already on the job are offered first when you pick the crew.",
+      "Request parts from the catalogue or create one on the spot, move a part to ordered, received and fitted one tap at a time, and send work out to a vendor with what it costs.",
+      "Anything you can't do yet says why, in words next to the button — no guessing at a greyed-out control.",
+    ],
+  },
+  {
+    slug: "2026-09-09-yard-move-along",
+    date: "2026-09-09",
+    title: "Move a unit to its next step from the yard",
+    categories: ["feature"],
+    lead:
+      "The one yellow button on each job sheet moves the unit along: send it to road test or bench test, on to the final check, mark it ready, or mark it collected. If something still blocks that step, the reason is written right beside the button.",
+    bullets: [
+      "Put a job on parts hold and resume it later, step back a stage, or cancel it, all from the same menu.",
+      "Update where a component is stored, take a photo, or flag a finding from the bar at the bottom of the sheet.",
+    ],
+  },
+  {
+    slug: "2026-09-09-yard-install",
+    date: "2026-09-09",
+    title: "Put Mechbuk Yard on the tablet's home screen",
+    categories: ["feature"],
+    lead:
+      "On an Android tablet, open the yard in Chrome and choose Install app. It launches full screen from its own icon, stays signed in for the shift, and remembers which workshop you were on.",
+    bullets: [
+      "Works in landscape and portrait.",
+      "It needs a connection for now — offline use is coming later.",
+    ],
+  },
+  {
+    slug: "2026-09-09-labour-hold-fix",
+    date: "2026-09-09",
+    title: "The labour-cost hold no longer stops people who can't see pricing",
+    categories: ["fix"],
+    lead:
+      "Team members without access to pricing settings were told to enter a labour cost before marking a job ready, with no way to do it. That hold now appears only for people who can actually see the labour rate. Parts still have to be priced before a job can be collected.",
+  },
+  {
+    slug: "2026-08-25-component-types",
+    date: "2026-08-25",
+    title: "Manage component types where you use them",
+    categories: ["feature", "improvement"],
+    lead:
+      "The components register now shows each unit's type in its own column, and you can add, rename or retire a type right inside the component drawer instead of leaving for Settings.",
+    bullets: [
+      "The receipt number stays on the record and in the spreadsheet export; it just no longer takes up a column.",
+      "A component that should never have been entered can now be archived. Its work history stays intact, and archiving is refused while a work order is still open on it.",
+    ],
+  },
+  {
+    slug: "2026-08-25-declined-cancel-fix",
+    date: "2026-08-25",
+    title: "Declining every operation no longer stops you cancelling the job",
+    categories: ["fix"],
+    lead:
+      "A work order whose operations had all been declined could not be cancelled, and the advice on screen sent you the long way round. Declined operations no longer count as work done, so the cancel goes through — and the message now says exactly what still blocks it.",
+    bullets: [
+      "Fitted parts, core returns and outside work still block a cancel, because those are real activity.",
+    ],
+  },
+  {
     slug: "2026-08-19-rework-no-charge",
     date: "2026-08-19",
     title: "When a job comes back, put it right at no charge",
