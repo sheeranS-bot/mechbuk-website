@@ -42,6 +42,30 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    slug: "2026-09-29-undo-operation-mistakes",
+    date: "2026-09-29",
+    title: "Undo mistakes on operations",
+    categories: ["improvement"],
+    lead:
+      "An operation marked done by mistake can now be reopened, and one added by mistake can be removed even after it was declined.",
+    bullets: [
+      "Reopen it from the work order's Manage menu or the yard sheet. Hours a mechanic clocked or typed in are kept.",
+      "Remove works on anything nobody started — waiting or declined — and clears the crew assigned to it at the same time.",
+    ],
+  },
+  {
+    slug: "2026-09-29-complete-hours-fix",
+    date: "2026-09-29",
+    title: "Completing an operation no longer bills the days in between",
+    categories: ["fix"],
+    lead:
+      "Marking an operation complete on the desk used to fill in its hours as the time between start and finish, so a job started in August and finished in September could show over a thousand hours of labour. Now it records only the hours you enter or that were clocked.",
+    bullets: [
+      "If no hours were recorded, the work order says so and charges the estimated time.",
+      "Operations that had picked up hours this way have been cleared.",
+    ],
+  },
+  {
     slug: "2026-09-09-yard-board",
     date: "2026-09-09",
     title: "See every unit in the yard from a tablet",
