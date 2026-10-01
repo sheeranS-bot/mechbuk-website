@@ -42,6 +42,19 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    slug: "2026-10-01-stocklyst-parts",
+    date: "2026-10-01",
+    title: "Bring parts in from Stocklyst instead of typing them twice",
+    categories: ["feature"],
+    lead:
+      "If you keep your stock in Stocklyst, connect it once and add its parts to a job straight from Add part. The part is copied into your Mechbuk parts list as you add it, so it is there for every job after.",
+    bullets: [
+      "The workshop owner connects it in Settings → Integrations and picks which Stocklyst workspace to use. Switch it off or disconnect at any time — parts already copied stay.",
+      "Search as usual in Add part: anything not yet in your parts list shows underneath, under From Stocklyst, with how many are in stock.",
+      "Mechbuk only reads from Stocklyst and never changes your stock there. A part with no cost in Stocklyst comes in as TBC, not $0.",
+    ],
+  },
+  {
     slug: "2026-09-29-undo-operation-mistakes",
     date: "2026-09-29",
     title: "Undo mistakes on operations",
